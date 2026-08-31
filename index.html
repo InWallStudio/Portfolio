@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InWall Studio | Premium Interior Architecture & Design-Build</title>
-    <link rel="icon" type="image/png" href="image.png">
+    <link rel="icon" type="image/png" href="./image.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -152,7 +152,7 @@
     <header class="fixed w-full top-0 z-50 glass-header border-b border-olive/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center gap-3">
-                <img src="InWallStudioLogo.png" alt="InWall Studio Logo" style="height: 2.75rem; width: 4.5rem;">
+                <img src="./InWallStudioLogo.png" alt="InWall Studio Logo" style="height: 2.75rem; width: 4.5rem;">
             </a>
             
             <nav class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-olive-dark">
@@ -203,7 +203,7 @@
             </div>
             <div class="flex justify-center relative">
                 <div class="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center rounded-full bg-olive/5 border border-olive/20 shadow-2xl">
-                    <img src="image.png" alt="InWall Studio Emblem" class="w-48 md:w-64 h-auto object-contain transition-transform duration-500 hover:scale-105">
+                    <img src="./image.png" alt="InWall Studio Emblem" class="w-48 md:w-64 h-auto object-contain transition-transform duration-500 hover:scale-105">
                 </div>
             </div>
         </div>
@@ -504,7 +504,7 @@
     <footer id="contact" class="bg-olive-dark text-ivory py-16 border-t border-gold/20">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
             <div>
-                <img src="InWallStudioLogo.png" alt="InWall Studio Logo" style="height: 6rem; width: 10rem;" class="mb-6 bg-ivory p-2 rounded">
+                <img src="./InWallStudioLogo.png" alt="InWall Studio Logo" style="height: 6rem; width: 10rem;" class="mb-6 bg-ivory p-2 rounded">
                 <p class="text-ivory/80 text-sm max-w-sm mb-6">
                     Serving Andul, Howrah, and Greater Kolkata with premium design-build interior solutions.
                 </p>
@@ -613,44 +613,40 @@
 
         if (brandGrid) {
             const brandFiles = [
-                { name: 'Brand a', src: 'Brands/a.png' },
-                { name: 'Brand b', src: 'Brands/b.png' },
-                { name: 'Brand c', src: 'Brands/c.png' },
-                { name: 'Brand d', src: 'Brands/d.png' },
-                { name: 'Brand e', src: 'Brands/e.png' },
-                { name: 'Brand f', src: 'Brands/f.png' },
-                { name: 'Brand g', src: 'Brands/g.png' },
-                { name: 'Brand h', src: 'Brands/h.png' },
-                { name: 'Brand i', src: 'Brands/i.png' },
-                { name: 'Brand j', src: 'Brands/j.png' },
-                { name: 'Brand k', src: 'Brands/k.png' },
-                { name: 'Brand l', src: 'Brands/l.png' },
-                { name: 'Brand m', src: 'Brands/m.png' },
-                { name: 'Brand n', src: 'Brands/n.png' },
-                { name: 'Brand o', src: 'Brands/o.png' },
-                { name: 'Brand p', src: 'Brands/p.png' },
-                { name: 'Brand q', src: 'Brands/q.png' },
-                { name: 'Brand r', src: 'Brands/r.png' }
+                { name: 'Brand a', src: './Brands/a.png' },
+                { name: 'Brand b', src: './Brands/b.png' },
+                { name: 'Brand c', src: './Brands/c.png' },
+                { name: 'Brand d', src: './Brands/d.png' },
+                { name: 'Brand e', src: './Brands/e.png' },
+                { name: 'Brand f', src: './Brands/f.png' },
+                { name: 'Brand g', src: './Brands/g.png' },
+                { name: 'Brand h', src: './Brands/h.png' },
+                { name: 'Brand i', src: './Brands/i.png' },
+                { name: 'Brand j', src: './Brands/j.png' },
+                { name: 'Brand k', src: './Brands/k.png' },
+                { name: 'Brand l', src: './Brands/l.png' },
+                { name: 'Brand m', src: './Brands/m.png' },
+                { name: 'Brand n', src: './Brands/n.png' },
+                { name: 'Brand o', src: './Brands/o.png' },
+                { name: 'Brand p', src: './Brands/p.png' },
+                { name: 'Brand q', src: './Brands/q.png' },
+                { name: 'Brand r', src: './Brands/r.png' }
             ];
 
             brandFiles.forEach((brand) => {
                 const card = document.createElement('div');
                 card.className = 'brand-card';
 
-                const img = new Image();
+                const img = document.createElement('img');
+                img.src = brand.src;
                 img.alt = brand.name;
                 img.loading = 'lazy';
-                img.onload = function () {
-                    img.classList.add('w-1', 'h-1');
-                    card.innerHTML = '';
-                    card.appendChild(img);
-                };
+                img.className = 'w-full h-full object-contain p-2';
                 img.onerror = function () {
                     card.innerHTML = `<div class="brand-fallback">${brand.name}</div>`;
                 };
-                img.src = brand.src;
-                card.appendChild(img);
 
+                card.appendChild(img);
                 brandGrid.appendChild(card);
             });
         }
